@@ -1,0 +1,60 @@
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  font-weight: normal;
+}
+
+body {
+  font-family: 'OnePiece', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;;
+  background-clip: '../assets/images/background.mp4';
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+}
+@font-face {
+  font-family: 'OnePiece';
+  src: url('./fonts/OnePiece.woff2') format('woff2'),
+    url('./fonts/OnePiece.woff') format('woff');
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  margin: 15px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.customStyle {
+  white-space: break-spaces!important;
+  font-size: x-large!important;
+}

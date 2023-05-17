@@ -1,0 +1,14 @@
+version: "3.4"
+services:
+  regalo_estefa:
+    container_name: regalo_estefa
+    image: node:lts
+    working_dir: /var/www/html/app/
+    entrypoint: /bin/bash
+    ports:
+      - 8000:8000
+    expose:
+      - 8000
+    volumes:
+      - ./RegaloEstefa/:/var/www/html/app
+    tty: true
