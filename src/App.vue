@@ -8,9 +8,6 @@ import { RouterLink, RouterView } from 'vue-router'
     <video id="video-background" muted autoplay loop>
       <source src="./assets/img/background.mp4" type="video/mp4">
     </video>
-    <audio autoplay loop>
-      <source src="./assets/audio/op.mp3" type="audio/mpeg">
-    </audio>
   <RouterView />
   </main>
 </template>

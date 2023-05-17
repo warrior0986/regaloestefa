@@ -1,4 +1,8 @@
 <template>
+  
+  <audio id="audio">
+    <source src="../assets/audio/op.mp3" type="audio/mpeg">
+  </audio>
   <div id="content">
     <div class="title"> ¿PUEDES ENCONTRAR EL ONE PIECE? </div>
   </div>
@@ -18,6 +22,10 @@ const router = useRouter();
     },
     methods: {
       redirectToOtherComponent($component) {
+        // var audio = document.getElementById("audio");
+        var audio = new Audio('/op.mp3');
+        audio.play();
+        console.log("playing audio");
         this.$router.push('/Question1View')
       }
     }
