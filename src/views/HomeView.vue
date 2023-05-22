@@ -1,8 +1,13 @@
-<template>
-  
+<template>  
   <audio id="audio">
     <source src="../assets/audio/op.mp3" type="audio/mpeg">
   </audio>
+  <div>
+    <v-alert style="z-index:9999;" color="success" icon="volume-high" dismissible>
+      <v-icon left>mdi mdi-volume-high</v-icon>
+        Sube el volumen, es mejor con música
+    </v-alert>
+  </div>
   <div id="content">
     <div class="title"> ¿PUEDES ENCONTRAR EL ONE PIECE? </div>
   </div>
@@ -14,6 +19,7 @@
 <script>
 import { useRouter } from 'vue-router'
 import Question1View from './Question1View.vue'
+import '@mdi/font/css/materialdesignicons.css';
 
 const router = useRouter();
   export default {
@@ -68,22 +74,7 @@ const router = useRouter();
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: rgba(255,255,255,0.3);
-  transition: all 0.3s ease;
-  z-index: -1;
-}
-
-.btn:hover::before {
-  width: 100%;
+  z-index: 99;
 }
 
 .btn:hover {

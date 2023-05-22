@@ -2,7 +2,7 @@
     <div>
     <div class="container">
         <v-card :color="ColorBackground">
-            <v-card-title class="customStyle">
+            <v-card-title style="color:white!important;" class="customStyle">
                {{ Question }}
             </v-card-title>    
             <v-card-text>

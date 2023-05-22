@@ -34,12 +34,39 @@
                         </v-col>
                     </v-row>
                 </v-card-text>
+                <v-card-actions>
+                    <v-btn color="success" variant="flat" @click="sendResponse" :disabled="isButtonDisabled">
+                        <v-icon left>mdi mdi-send</v-icon>
+                      Enviar
+                    </v-btn>
+                  </v-card-actions>
             </v-card>
         </div>
         <div class="after"></div>
     </div>
+    <template>
+        <div class="text-center ma-2">
+          <v-snackbar
+            v-model="snackbar"
+          >
+            <span>Mensaje Enviado</span>
+      
+            <template v-slot:actions>
+              <v-btn
+                color="red"
+                variant="text"
+                @click="snackbar = false"
+              >
+                Cerrar
+              </v-btn>
+            </template>
+          </v-snackbar>
+        </div>
+      </template>
 </template>
 <script>
+import '@mdi/font/css/materialdesignicons.css';
+import emailjs from 'emailjs-com';
 
 export default {
     name: 'Award',
@@ -49,6 +76,16 @@ export default {
             showPC: false,
             showUniversidad: false,
             containerClass: "container",
+            snackbar: false,
+        }
+    },
+    computed: {
+        isButtonDisabled() {
+            if (this.showViaje || this.showPC || this.showUniversidad) {
+                return false;
+            } else {
+                return true;
+            }
         }
     },
     methods: {
@@ -76,6 +113,18 @@ export default {
                 default:
                     break;
             }
+        },
+        sendResponse() {
+            let response = this.showViaje ? 'viaje' : this.showPC ? 'pc' : 'universidad';
+            emailjs.send('service_33ek6c6', 'template_0fymv02', { premio: response }, 'sCf8sYEIh3nfVBt0w')
+                .then((response) => {
+                    this.snackbar = true;
+                    console.log('Email sent!', response.status, response.text);
+                })
+                .catch((error) => {
+                    console.error('Email error:', error);
+                });
+
         }
     }
 }
